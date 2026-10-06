@@ -1,1 +1,27 @@
+#include <stdio.h>
 
+int main() {
+    int n = 5;
+    int num[30] = {1,9,2,6,5};
+    int leader[30];
+    int isLeader = 1;
+
+    int j = 0;
+    for(int i=0; i<n; i++){
+        for(int k=i+1; k<n; k++){
+            if(num[k] > num[i]){
+            isLeader = 0;
+            }
+        }
+        if(isLeader == 1){
+            leader[j] = num[i];
+            j++;
+        }
+        isLeader = 1;
+    }
+
+    printf("leader digits : ");
+    for(int i=0; i<j; i++){
+        printf("%d",leader[i]);
+    }
+}
