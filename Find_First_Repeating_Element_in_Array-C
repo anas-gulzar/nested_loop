@@ -1,1 +1,34 @@
+#include <stdio.h>
 
+int main() {
+    int n;
+    printf("Enter Size of Array : ");
+    scanf("%d",&n);
+    int num[30];
+    printf("Enter Numbers One by One : ");
+    for(int i=0; i<n; i++){
+        scanf("%d", &num[i]);
+    }
+    int repeat = 0;
+    int found = 0;
+
+    for(int i=0; i<n; i++){
+        for(int j=i+1; j<n; j++){
+            if(num[i] == num[j]){
+                repeat = num[i];
+                found = 1;
+                break;
+            }
+        }
+
+        if(found != 0){
+            break;
+        }
+    }
+
+    if(found == 0){
+        printf("No Repeating Element Found!");
+    }else{
+    printf("First Repeating Element : %d",repeat);
+    }
+}
