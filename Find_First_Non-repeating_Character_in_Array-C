@@ -1,1 +1,36 @@
+#include <stdio.h>
 
+int main() {
+    int n;
+    printf("enter size of Array : ");
+    scanf("%d",&n);
+    int num[50];
+    printf("Enter Digits one by one : ");
+    for(int i=0; i<n; i++){
+        scanf("%d",&num[i]);
+    }
+    int ans;
+    int ansFound = 0;
+
+    for(int i=0; i<n; i++){
+        int found = 0;
+        
+        for(int j=0; j<n; j++){
+            if(i != j && num[j] == num[i]){
+                found = 1;
+                break;
+            }
+        }
+        if(found ==0 ){
+            ans = num[i];
+            ansFound = 1;
+            break;
+        }
+    }
+
+    if(ansFound == 1){
+        printf("first non-repeating digit : %d",ans);
+    }else{
+        printf("no non-repeating digit found!");
+    }
+}
