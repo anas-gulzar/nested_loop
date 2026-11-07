@@ -1,1 +1,40 @@
+#include <stdio.h>
 
+int main() {
+    int n;
+    printf("Enter Size of Array: ");
+    scanf("%d", &n);
+
+    if(n < 1 || n > 50) {
+        printf("Invalid Array Size!");
+        return 0;
+    }
+
+    int num[50];
+
+    printf("Enter Numbers One by One: ");
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &num[i]);
+    }
+
+    int maxDiff = -1;
+
+    for(int i = 0; i < n; i++) {
+        for(int j = i + 1; j < n; j++) {
+
+            int diff = num[j] - num[i];
+
+            if(diff > maxDiff) {
+                maxDiff = diff;
+            }
+        }
+    }
+
+    if(maxDiff > 0) {
+        printf("Maximum Difference: %d", maxDiff);
+    } else {
+        printf("No Positive Difference");
+    }
+
+    return 0;
+}
