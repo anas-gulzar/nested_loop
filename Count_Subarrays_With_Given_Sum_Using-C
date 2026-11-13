@@ -1,1 +1,37 @@
+#include <stdio.h>
 
+int main() {
+    int n;
+    printf("Enter Size of Array : ");
+    scanf("%d", &n);
+    if(n < 1 || n > 50){
+        printf("Invalid Array Size!");
+        return 0;
+    }
+    int num[50];
+    printf("Enter Numbers one by one : ");
+    for(int i=0; i<n; i++){
+        scanf("%d",&num[i]);
+    }
+    int count = 0;
+    int target;
+    printf("Enter Target Sum : ");
+    scanf("%d", &target);
+
+    for(int i=0; i<n; i++){
+        int sum = 0;
+
+        for(int j=i; j<n; j++){
+            sum += num[j];
+            if(sum == target){
+                count++;
+            }
+        }
+    }
+
+    if(count == 0){
+        printf("No Target Sum Found!");
+    }else{
+        printf("Total Target Subarray : %d", count);
+    }
+}
